@@ -1,13 +1,37 @@
 <h1>Burgers!</h1>
 
-<h2>You gotta eat those burgers!</h2>
+<h2>You gotta eat those burgers:</h2>
 
 <ul>
     {{#each burgers}}
     {{#unless devoured}}
-        <div>
-            {{burger_name}}
+        <div class="burgersToDevour">
+            <form action="">
+            {{ burger_name }}
+            <button class="eatBurger" type="submit" id={{this.id}}>Devour!</button>
+            </form>
         </div>
     {{/unless}}
     {{/each}}
 </ul>
+
+<h2>Eaten burgers:</h2>
+
+<ul>
+    {{#each burgers}}
+    {{#if devoured}}
+    <div class="devouredBurgers">
+        {{ burger_name }}        
+    </div>
+    {{/if}}
+    {{/each}}
+</ul>
+
+<div>
+    <form action="">
+        <input type="text" name="burgerType">
+        <button class="newBurger" type="submit">Sumbit</button>
+        <br>
+        Enter the burger you want to eat!
+    </form>
+</div>
