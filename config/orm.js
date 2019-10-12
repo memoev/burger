@@ -3,7 +3,7 @@ const conn = require("./connection");
 const orm = {
     selectAll: (tableInput, cb) => {
         const queryString = "SELECT * FROM " + tableInput + ";";
-        connection.query(queryString, function (err, result) {
+        conn.query(queryString, function (err, result) {
             if (err) {
                 throw err;
             }
@@ -16,7 +16,7 @@ const orm = {
         queryString += "VALUES ('" + burgerName + "');"
 
         console.log(queryString);
-        connection.query(queryString, vals, function (err, result) {
+        conn.query(queryString, vals, function (err, result) {
             if (err) {
                 throw err;
             }
@@ -29,7 +29,7 @@ const orm = {
         queryString += " WHERE " + condition;
 
         console.log(queryString);
-        connection.query(queryString, function (err, result) {
+        conn.query(queryString, function (err, result) {
             if (err) {
                 throw err;
             }
