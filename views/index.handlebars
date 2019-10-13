@@ -6,7 +6,7 @@
     {{#each burgers}}
     {{#unless devoured}}
         <div class="burgersToDevour">
-            <form action="">
+            <form action="/consume/{{this.id}}" method="post">
             {{ burger_name }}
             <button class="eatBurger" type="submit" id={{this.id}}>Devour!</button>
             </form>
