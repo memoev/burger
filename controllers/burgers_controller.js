@@ -7,7 +7,7 @@ var burger = require("../models/burger");
 
 
 router.get("/", (req, res) => {
-    burger.all((data) => {
+    burger.all(data => {
         const hbsObject = {
             burgers: data
         };
@@ -15,6 +15,12 @@ router.get("/", (req, res) => {
         res.render("index", hbsObject);
     });
 });
+
+router.post("/add", (req, res) => {
+    burger.create(req.body.burger_name, () => {
+        res.sendStatus(200);
+    })
+})
 
 
 module.exports = router;
