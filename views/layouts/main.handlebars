@@ -2,11 +2,21 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-		<link rel="stylesheet" href="../../public/assets/css/burger_style.css" type="text/css" />
+		<link rel="stylesheet" href="/public/assets/css/burger_style.css" type="text/css" />
 		<title>Eat Dat Burger!</title>
 		<script src="https://code.jquery.com/jquery.js"></script>
 	</head>
 	<body>
 		{{{ body }}}
 	</body>
+	<script>
+		$(".newBurger").click(() => {
+			// console.log("hi!");
+			newBurgerName = $(".burgerType").val().trim();
+			console.log(newBurgerName);
+			$.post("/add", {burger_name: newBurgerName}, data => {
+				location.reload();
+			})
+		});
+	</script>
 </html>
