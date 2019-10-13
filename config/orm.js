@@ -2,7 +2,7 @@ const conn = require("./connection");
 
 const orm = {
     selectAll: (tableInput, cb) => {
-        const queryString = "SELECT * FROM " + tableInput + ";";
+        let queryString = "SELECT * FROM " + tableInput + ";";
         conn.query(queryString, function (err, result) {
             if (err) {
                 throw err;
@@ -11,12 +11,12 @@ const orm = {
         });
     },
     insertOne: (tableName, burgerName, cb) => {
-        const queryString = "INSERT INTO " + tableName;
+        let queryString = "INSERT INTO " + tableName;
         queryString += " (burger_name) ";
         queryString += "VALUES ('" + burgerName + "');"
 
         console.log(queryString);
-        conn.query(queryString, vals, function (err, result) {
+        conn.query(queryString, function (err, result) {
             if (err) {
                 throw err;
             }
@@ -24,7 +24,7 @@ const orm = {
         });
     },
     updateOne: (tableName, condition, cb) => {
-        const queryString = "UPDATE " + tableName;
+        let queryString = "UPDATE " + tableName;
         queryString += " SET devoured = true";
         queryString += " WHERE " + condition;
 
