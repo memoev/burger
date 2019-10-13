@@ -19,8 +19,8 @@ router.get("/", (req, res) => {
 router.post("/add", (req, res) => {
     burger.create(req.body.burger_name, () => {
         res.sendStatus(200);
-    })
-})
+    });
+});
 
 
 module.exports = router;
