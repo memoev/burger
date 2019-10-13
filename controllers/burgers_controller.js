@@ -28,12 +28,7 @@ router.post("/consume/:id", (req, res) => {
     console.log(condition);
 
     burger.update(condition, () => {
-        if (res.changedRows == 0) {
-            // If no rows were changed, then the ID must not exist, so 404
-            return res.status(404).end();
-        } else {
-            res.status(200).end();
-        };
+        res.redirect('/');
     });
     
 });
